@@ -8,12 +8,12 @@ import {
 } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
+import { loadStripe, StripeElementsOptions } from "@stripe/stripe-js";
 
 const stripe = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "");
 
 export default function Home() {
-  const options = {
+  const options: StripeElementsOptions = {
     mode: "payment" as const,
     amount: 4230,
     currency: "nzd",
@@ -23,7 +23,7 @@ export default function Home() {
     appearance: {
       theme: "stripe",
       variables: {
-        borderRadius: 0,
+        borderRadius: "0",
       },
     },
   };
